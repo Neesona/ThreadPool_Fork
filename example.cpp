@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <chrono>
 
@@ -21,6 +21,8 @@ int main()
         );
     }
 
+    // get方法会阻塞在主线程上，直到有可用的结果
+    // 如果不调用get方法，需要在ThreadPool添加一个阻塞方法，参考ThreadPool的析构函数
     for(auto && result: results)
         std::cout << result.get() << ' ';
     std::cout << std::endl;
